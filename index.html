@@ -4,9 +4,23 @@
     <title>Видео на сайте</title>
 </head>
 <body>    
-    <video width="100%" height="100%" controls>
+    <video id="myVideo" width="100%" height="100%" controls>
         <source src="banner1.mp4" type="video/mp4">
         Ваш браузер не поддерживает встроенные видео.
     </video>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получаем элемент видео
+            const video = document.getElementById('myVideo');
+            
+            // Добавляем обработчик события 'ended' (окончание видео)
+            video.addEventListener('ended', function() {
+                // Небольшая задержка перед возвратом (можно удалить при необходимости)
+                setTimeout(function() {
+                    history.back();
+                }, 500);
+            });
+        });
+    </script>
 </body>
 </html>
